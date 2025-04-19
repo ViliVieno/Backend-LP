@@ -1,0 +1,16 @@
+from fastapi import FastAPI
+from .routes import player_events
+from contextlib import asynccontextmanager
+from .db.database import create_db_and_tables
+
+# Define lifespan event handlers
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Alku")
+    create_db_and_tables()
+    yield
+    print("Loppu")
+
+app = FastAPI(lifespan=lifespan)
+
+app.include_router(player_events.router)
