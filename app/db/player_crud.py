@@ -23,5 +23,16 @@ def get_player_with_events(player_id: int) -> Optional[dict]:
         return {
             "id": player.id,
             "name": player.name,
-            "events": [event.dict() for event in events]
+            "events": [event.model_dump() for event in events]
         }
+    
+def get_events_by_player(player_id: int, event_type: Optional[str] = None) -> List[PlayerEvent]:
+    with get_session() as session:
+        query = select(PlayerEvent).where(PlayerEvent.player_id == player_id)
+        if event_type:
+            query = query.where(PlayerEvent.event_type == event_type)
+        return session.exec(query).all()
+
+def get_player_by_id(player_id: int) -> Players | None:
+    with get_session() as session:
+        return session.exec(select(Players).where(Players.id == player_id)).first()

@@ -24,3 +24,15 @@ class PlayerWithEvents(SQLModel):
     id: int
     name: str
     events: List[PlayerEventRead]
+
+class LevelCompletedRequest(SQLModel):
+    player_id: int
+    level_name: str
+
+class PlayerEventCreate(SQLModel):
+    type: str
+    detail: str
+
+class EventCreate(SQLModel):
+    type: str
+    detail: str
