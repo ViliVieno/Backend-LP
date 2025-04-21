@@ -1,0 +1,6 @@
+CHATGPT:
+id: int | None = Field(default=None, primary_key=True)  # 👈 This is the primary key
+from typing import List <- 
+Most of SQLite
+def get_player_with_events(player_id: int) -> Optional[dict]:
+
