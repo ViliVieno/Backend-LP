@@ -11,13 +11,15 @@ def create_event(event: PlayerEvent) -> PlayerEvent:
         session.refresh(event)
         return event
 
-def get_all_events(event_type: Optional[str] = None) -> List[PlayerEvent]:
+# Below, Optional is used to say "Event type is optional and if it is used, then make it a string" and the List[] says "Return [x] in a list"
+def get_all_events(event_type: Optional[str] = None) -> List[PlayerEvent]: 
     with get_session() as session:
         query = select(PlayerEvent)
         if event_type:
             query = query.where(PlayerEvent.event_type == event_type)
         return session.exec(query).all()
-
+    
+# Below, event_type is a must and it will return [x] in a list
 def get_events_by_type(event_type: str) -> List[PlayerEvent]:
     with get_session() as session:
         return session.exec(

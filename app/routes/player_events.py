@@ -15,5 +15,5 @@ def get_events_by_type(event_type: str):
 
 @router.get("/all", response_model=List[PlayerEventRead])
 def get_all_events(type: Optional[str] = None):
-    events = event_crud.get_all_events(event_type=type)
+    events = event_crud.get_all_events(event_type = type)
     return events
