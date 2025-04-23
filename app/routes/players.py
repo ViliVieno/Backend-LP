@@ -34,7 +34,7 @@ def create_event_for_player(id: int, event: EventCreate):
     if not player:
         raise HTTPException(status_code = 404, detail="Player not found")
     
-    allowed_event_types = {"level_started", "level_completed"}
+    allowed_event_types = {"level_started", "level_solved"}
     if event.type not in allowed_event_types:
         raise HTTPException(status_code = 400, detail="Unknown event type")
     

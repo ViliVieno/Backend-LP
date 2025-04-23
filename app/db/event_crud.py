@@ -4,13 +4,6 @@ from sqlmodel import select
 from typing import List, Optional
 from datetime import datetime, timezone
 
-def create_event(event: PlayerEvent) -> PlayerEvent:
-    with get_session() as session:
-        session.add(event)
-        session.commit()
-        session.refresh(event)
-        return event
-
 # Below, Optional is used to say "Event type is optional and if it is used, then make it a string" and the List[] says "Return [x] in a list"
 def get_all_events(event_type: Optional[str] = None) -> List[PlayerEvent]: 
     with get_session() as session:
