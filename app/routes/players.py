@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, status
-from db import player_crud, event_crud
-from db.models import Players, PlayerWithEvents, PlayerEventRead, EventCreate
+from app.db import player_crud, event_crud
+from app.db.models import Players, PlayerWithEvents, PlayerEventRead, EventCreate
 from typing import List, Optional
 
 router = APIRouter(prefix="/players", tags=["players"])

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from db.models import PlayerEvent, PlayerEventRead
-from db import event_crud
+from app.db.models import PlayerEvent, PlayerEventRead
+from app.db import event_crud
 from typing import List, Optional
 
 router = APIRouter(prefix="/events", tags=["events"])

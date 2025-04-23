@@ -6,10 +6,10 @@ from .db.database import create_db_and_tables
 # Define lifespan event handlers
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("Alku")
+    print("Starting")
     create_db_and_tables()
     yield
-    print("Loppu")
+    print("Finishing")
 
 app = FastAPI(lifespan=lifespan)
 
