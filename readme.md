@@ -14,12 +14,16 @@ The program was made by me, with help from the work we did in class and in some 
 Working Prompts
 --------------------------------------------------------------------------------------------------------------
 Make players with POST /players/
+
 Get all players with GET /players/
 Get specific player with GET /players/{id}?player_id=?
+
 Get players events with GET /players/?/events?type=?, there are only two valid types: level_started and level_solved
+
 Make events for players with POST /players/?/events
 
 Get all events with GET /events/
+
 Get all events of a specific type GET /events/type/level_solved or /events/type/level_started
 
 AI Part.
